@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@source "../**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}";
+
+@theme {
+  --color-cream: #faf6f1;
+  --color-terracotta: #c4654a;
+  --color-sage: #7d9471;
+  --color-olive: #5c5c3d;
+  --color-charcoal: #2d2926;
+  --color-warm-gray: #8a7e74;
+}
+
+html {
+  background-color: var(--color-cream);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--color-charcoal);
+}
+
+body {
+  margin: 0 auto;
+  width: 100%;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1, h2 {
+  font-weight: 600;
+}
+
+
+a {
+  color: var(--color-terracotta);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-olive);
+}
+
+::selection {
+  background-color: var(--color-sage);
+  color: white;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.tracking-tight {
+  letter-spacing: -0.025em;
+}
+
+.tracking-widest {
+  letter-spacing: 0.1em;
+}
