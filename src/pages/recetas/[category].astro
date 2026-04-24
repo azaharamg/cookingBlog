@@ -13,6 +13,7 @@ export function getStaticPaths() {
 }
 
 const { category } = Astro.params;
+const siteUrl = import.meta.env.SITE_URL || "https://recipe-blog.onrender.com";
 
 const allRecipes = await getCollection("recipe");
 
@@ -35,9 +36,11 @@ if (category === "traditional") {
 } else if (category === "desserts") {
   title = "Postres";
 }
+
+const canonicalUrl = `${siteUrl}/recetas/${category}/`;
 ---
 
-<BaseLayout pageTitle={`${title} - Recetario`}>
+<BaseLayout pageTitle={`${title} - Recetario`} canonicalUrl={canonicalUrl}>
   <Header />
   <main id="main-content" class="max-w-6xl mx-auto px-4 py-12">
     <h1 class="text-2xl uppercase tracking-widest text-center text-[var(--color-terracotta)] mb-8">

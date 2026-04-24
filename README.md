@@ -1,6 +1,6 @@
-# Cooking Blog
+# Recipe Blog
 
-Blog de recetas de cocina built with **Astro 5** + **React** + **Tailwind CSS v4**.
+A recipe blog built with **Astro 5** + **React** + **Tailwind CSS v4**.
 
 ## Stack
 
@@ -13,10 +13,9 @@ Blog de recetas de cocina built with **Astro 5** + **React** + **Tailwind CSS v4
 
 ```
 src/
-├── recipes/           # Recetas en markdown (Content Collection)
+├── recipes/           # Markdown recipes (Content Collection)
 ├── pages/             # Astro pages/routes
 │   ├── index.astro    # Homepage
-│   ├── menu-semanal.astro
 │   ├── recetas/[category].astro
 │   └── recipes/[...slug].astro
 ├── components/        # Astro & React components
@@ -35,8 +34,32 @@ src/
 
 ## Content Collections
 
-- Recetas en `src/recipes/*.md` con frontmatter: `title`, `pubDate`, `description`, `category`, `image`
-- Schema definido en `src/content.config.ts`
+Recipes in `src/recipes/*.md` with the following required frontmatter:
+
+```yaml
+---
+title: "Recipe Title"
+pubDate: 2026-01-01
+category: kids | traditional | desserts
+---
+```
+
+Recipe content goes in markdown below the frontmatter.
+
+## Contributing
+
+To add a recipe:
+
+1. Fork the repository
+2. Create a file in `src/recipes/your-recipe.md`
+3. Add the required frontmatter and markdown content
+4. Submit a Pull Request
+
+### Guidelines
+
+- File name should be descriptive (e.g. `pure-de-merluza.md`)
+- Images go in `public/images/`
+- Categories: `kids` (children recipes), `traditional`, `desserts`
 
 ## Custom Theme Colors
 
@@ -46,3 +69,10 @@ Colors defined in `src/styles/global.css`:
 - `--color-sage` (#7d9471) - Secondary accent
 - `--color-olive` (#5c5c3d) - Hover states
 - `--color-charcoal` (#2d2926) - Text
+
+## Deploy
+
+Deploy to [Render](https://render.com) as Static Site:
+
+- **Build Command**: `npm install && npm run build`
+- **Publish Directory**: `dist`

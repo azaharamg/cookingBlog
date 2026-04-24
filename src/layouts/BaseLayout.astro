@@ -1,6 +1,8 @@
 ---
 import '../styles/global.css';
-const { pageTitle } = Astro.props;
+const { pageTitle, canonicalUrl } = Astro.props;
+const siteUrl = import.meta.env.SITE_URL || "https://recipe-blog.onrender.com";
+const url = canonicalUrl || siteUrl;
 ---
 <html lang="es">
   <head>
@@ -9,6 +11,7 @@ const { pageTitle } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content="Recetario con recetas infantiles, tradicionales y postres" />
+    <link rel="canonical" href={url} />
     <title>{pageTitle}</title>
   </head>
   <body>

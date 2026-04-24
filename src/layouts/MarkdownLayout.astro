@@ -2,15 +2,24 @@
 import BaseLayout from "./BaseLayout.astro";
 import Header from "../components/Header.astro";
 const { frontmatter } = Astro.props;
+const siteUrl = import.meta.env.SITE_URL || "https://recipe-blog.onrender.com";
+const canonicalUrl = `${siteUrl}/recipes/${frontmatter.slug || frontmatter.title}/`;
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Recipe",
+  "name": frontmatter.title,
+  "datePublished": frontmatter.pubDate ? new Date(frontmatter.pubDate).toISOString().split('T')[0] : undefined
+};
 ---
 
-<BaseLayout pageTitle={frontmatter.title}>
+<BaseLayout pageTitle={frontmatter.title} canonicalUrl={canonicalUrl}>
   <Header />
   <main id="main-content" class="max-w-4xl mx-auto px-4 py-8">
     <article class="bg-white rounded-2xl shadow-sm p-8 md:p-12">
       <h1 class="text-3xl md:text-4xl font-bold text-[var(--color-charcoal)] mb-6">
         {frontmatter.title}
       </h1>
+      <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
       <div class="prose prose-lg max-w-none text-[var(--color-charcoal)]">
         <slot />
       </div>
