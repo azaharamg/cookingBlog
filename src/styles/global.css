@@ -22,6 +22,31 @@ body {
   width: 100%;
   min-height: 100vh;
   line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img, svg, table, pre, code {
+  max-width: 100%;
+  height: auto;
+}
+
+.recipe-content :global(img) {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+}
+
+.recipe-content :global(pre),
+.recipe-content :global(table) {
+  overflow-x: auto;
+  display: block;
+  max-width: 100%;
+}
+
+.recipe-content :global(ul),
+.recipe-content :global(ol) {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 * {

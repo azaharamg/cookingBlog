@@ -29,12 +29,12 @@ const recipes = allRecipes
 
 const filteredRecipes = recipes.filter(r => r.category === category);
 
-let title = "Recetas Infantiles";
+let title = "Infantiles";
 
 if (category === "traditional") {
-  title = "Recetas Tradicionales";
+  title = "Generales";
 } else if (category === "desserts") {
-  title = "Postres";
+  title = "Repostería";
 }
 
 const canonicalUrl = `${siteUrl}/recetas/${category}/`;
